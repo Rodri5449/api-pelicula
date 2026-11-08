@@ -3,12 +3,12 @@ service: api-pelicula
 
 provider:
   name: aws
-  runtime: python3.12	
+  runtime: python3.12
   # Default memory size for functions (default: 1024MB)
   memorySize: 1024
   timeout: 30
   iam:
-    role: arn:aws:iam::206242151142:role/LabRole	
+    role: arn:aws:iam::206242151142:role/LabRole
   environment:
     TABLE_NAME: ${sls:stage}-t_peliculas
 
@@ -24,7 +24,7 @@ functions:
 
 resources:
   Resources:
-    TablaComentarios:
+    TablaPeliculas:
       Type: AWS::DynamoDB::Table
       Properties:
         TableName: ${self:provider.environment.TABLE_NAME}
